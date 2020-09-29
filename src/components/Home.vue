@@ -1,12 +1,16 @@
 <template>
   <div class="home">
-    <h1>{{msg}}</h1>
+    <Weather msg="Bienvenue sur notre appli de météo !"/>
   </div>
 </template>
 
 <script>
+
+  import Weather from "./Weather";
+
   export default {
     name: "Home",
+    components: {Weather},
     props: {
       msg: String
     },

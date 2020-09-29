@@ -1,4 +1,7 @@
-const API_KEY = "b60f3577e8eb46f089853e2a9fd7d744";
-const CURRENT_WEATHER = `https://api.weatherbit.io/v2.0/current?city=Kiev,UA&key=${API_KEY}`;
+const API_KEY = "687578782ab28d5262b75642be7a47befa7ffdb3656cbdbac9f1c54c25ddf41c";
+const CURRENT_WEATHER_CITY = `https://api.meteo-concept.com/api/location/city?token=${API_KEY}`;
+const CURRENT_WEATHER_EPHEMERIDE = `https://api.meteo-concept.com/api/ephemeride/0?token=${API_KEY}`;
+const CURRENT_WEATHER_FORECAST = `https://api.meteo-concept.com/api/forecast/daily?token=${API_KEY}`;
 
-export { API_KEY, CURRENT_WEATHER }; // export constant to be able to use them in components
+export { API_KEY, CURRENT_WEATHER_CITY, CURRENT_WEATHER_EPHEMERIDE, CURRENT_WEATHER_FORECAST};
+

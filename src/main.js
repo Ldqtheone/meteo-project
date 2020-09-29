@@ -1,4 +1,3 @@
-// Import the dependencies and necessary modules
 import Vue from 'vue';
 import App from './App.vue';
 import FusionCharts from 'fusioncharts';
@@ -8,6 +7,7 @@ import PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import VueFusionCharts from 'vue-fusioncharts';
 import { store } from '@/store'
+import router from './router'
 
 Charts(FusionCharts);
 PowerCharts(FusionCharts);
@@ -20,5 +20,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
-  store
+  store,
+  router
 }).$mount('#app')

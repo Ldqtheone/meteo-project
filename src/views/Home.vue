@@ -6,7 +6,7 @@
 
 <script>
 
-  import Weather from "./Weather";
+  import Weather from "../components/Weather";
 
   export default {
     name: "Home",

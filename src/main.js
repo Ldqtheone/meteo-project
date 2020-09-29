@@ -7,7 +7,7 @@ import PowerCharts from 'fusioncharts/fusioncharts.powercharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import VueFusionCharts from 'vue-fusioncharts';
 import { store } from '@/store'
-import router from './router'
+import router from '@/router'
 
 Charts(FusionCharts);
 PowerCharts(FusionCharts);

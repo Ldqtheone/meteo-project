@@ -5,7 +5,9 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        errorMessage: ""
+        errorMessage: "",
+        city: "",
+        insee: []
     },
     mutations: {
         displayError(state, errorMessage) {
@@ -13,9 +15,17 @@ export const store = new Vuex.Store({
         },
         resetErrors(state) {
             state.errorMessage = ""
+        },
+        searchCity(state, city) {
+            state.city = city
+        },
+        setInsee(state, insee) {
+            state.insee = insee
         }
     },
     getters: {
-        errorMessage: state => state.errorMessage
+        errorMessage: state => state.errorMessage,
+        city: state => state.city,
+        insee: state => state.insee
     }
 });

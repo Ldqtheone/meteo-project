@@ -1,7 +1,6 @@
-const API_KEY = "687578782ab28d5262b75642be7a47befa7ffdb3656cbdbac9f1c54c25ddf41c";
-const CURRENT_WEATHER_CITY = `https://api.meteo-concept.com/api/location/cities?token=${API_KEY}`;
-const CURRENT_WEATHER_EPHEMERIDE = `https://api.meteo-concept.com/api/ephemeride/0?token=${API_KEY}`;
-const CURRENT_WEATHER_FORECAST = `https://api.meteo-concept.com/api/forecast/daily?token=${API_KEY}`;
+const API_KEY = "fdf81dbac6b7b0e2d531f26f7172eb2d";
+const CURRENT_WEATHER_CITY = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
+const CURRENT_WEATHER_UV = `http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}`;
+const CURRENT_WEATHER_CLIMATE = `https://api.openweathermap.org/data/2.5/forecast/climate?appid=${API_KEY}`;
 
-export { API_KEY, CURRENT_WEATHER_CITY, CURRENT_WEATHER_EPHEMERIDE, CURRENT_WEATHER_FORECAST};
-
+export {API_KEY, CURRENT_WEATHER_CITY, CURRENT_WEATHER_UV, CURRENT_WEATHER_CLIMATE};

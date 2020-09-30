@@ -1,4 +1,4 @@
-<template>
+<template v-if="climate">
   <div>
     <h1>Forecast :</h1>
   </div>
@@ -7,7 +7,10 @@
 <script>
 
 export default {
-  name: "Forecast"
+  name: "Climate",
+  props: {
+    climate: Array
+  }
 }
 
 </script>

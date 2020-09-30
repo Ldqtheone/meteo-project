@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
     state: {
         errorMessage: "",
         city: "",
-        insee: []
+        cityId: [],
+        cityLatLon: []
     },
     mutations: {
         displayError(state, errorMessage) {
@@ -19,13 +20,17 @@ export const store = new Vuex.Store({
         searchCity(state, city) {
             state.city = city
         },
-        setInsee(state, insee) {
-            state.insee = insee
+        setCityId(state, cityId) {
+            state.cityId = cityId
+        },
+        setCityLatLon(state, cityLatLon) {
+            state.cityLatLon = cityLatLon
         }
     },
     getters: {
         errorMessage: state => state.errorMessage,
         city: state => state.city,
-        insee: state => state.insee
+        cityId: state => state.cityId,
+        cityLatLon: state => state.cityLatLon
     }
 });

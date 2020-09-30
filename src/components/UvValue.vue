@@ -1,4 +1,4 @@
-<template>
+<template v-if="uvValue">
   <div>
     <h1>Ephemeride :</h1>
   </div>
@@ -7,7 +7,10 @@
 <script>
 
 export default {
-  name: "Ephemeride"
+  name: "UvValue",
+  props: {
+    uvValue: Array
+  }
 }
 
 </script>

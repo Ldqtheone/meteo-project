@@ -20,7 +20,7 @@
 
 import UvValue from "./UvValue";
 import axios from "axios";
-import { CURRENT_WEATHER_UV} from "../constants";
+import { CURRENT_WEATHER_UV } from "../constants";
 
 export default {
   name: "CityWeather",

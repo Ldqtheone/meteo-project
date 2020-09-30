@@ -1,20 +1,23 @@
 <template>
-  <div class="block">
-    <h2>Voici les informations sur {{ this.$store.getters.city }} :</h2>
-    <div class="information">
-      <ul v-for="(cityN, index) of cityWeather" v-bind:key="index">
-        <li>
-          Country : {{ cityN.sys.country }}
-          <br />
-          ID : {{ cityN.sys.id }}
-        </li>
-        <li>Latitude : {{ cityN.coord.lat }}</li>
-        <li>Longitude : {{ cityN.coord.lon }}</li>
-      </ul>
-    </div>
-    <div class="advancedWeather">
-      <UvValue v-bind:uvValue="this.displayUv" />
-    </div>
+  <div>
+    <h2>Voici les informations sur :</h2>
+    <b-card>
+      {{ this.$store.getters.city }}
+      <div class="information">
+        <ul v-for="(cityN, index) of cityWeather" v-bind:key="index">
+          <li>
+            Country : {{ cityN.sys.country }}
+            <br />
+            ID : {{ cityN.sys.id }}
+          </li>
+          <li>Latitude : {{ cityN.coord.lat }}</li>
+          <li>Longitude : {{ cityN.coord.lon }}</li>
+        </ul>
+      </div>
+      <div class="advancedWeather">
+        <UvValue v-bind:uvValue="this.displayUv" />
+      </div>
+    </b-card>
   </div>
 </template>
 
@@ -62,10 +65,6 @@ export default {
 <style scoped>
 li {
   list-style-type: none;
-}
-
-.block {
-  display: flex;
 }
 
 .information {

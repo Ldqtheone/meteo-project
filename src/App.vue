@@ -1,25 +1,28 @@
 <template>
   <div id="app">
     <div class="nav">
-      <router-link :to="{name:'Home'}" class="nav__link"><b-button variant="outline-primary">Home</b-button></router-link>
-      <router-link :to="{name:'About'}" class="nav__link"><b-button variant="info">About</b-button></router-link>
+      <router-link :to="{ name: 'Home' }" class="nav__link"
+        ><b-button variant="outline-primary">Home</b-button></router-link
+      >
+      <router-link :to="{ name: 'About' }" class="nav__link"
+        ><b-button variant="info">About</b-button></router-link
+      >
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-}
-
+  name: "App",
+};
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -27,11 +30,11 @@ export default {
   margin-top: 60px;
 }
 
-.nav{
+.nav {
   justify-content: center;
 }
 
-.nav__link{
+.nav__link {
   margin-right: 50px;
   margin-bottom: 50px;
 }

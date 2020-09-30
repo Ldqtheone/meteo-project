@@ -26,14 +26,20 @@ export default {
   name: "CityWeather",
   components: {UvValue},
   props: {
-    cityWeather: Array,
-    latitude: Number,
-    longitude: Number
+    cityWeather: Array
   },
   asyncComputed: {
     displayUv : {
       get() {
-        return axios.get(CURRENT_WEATHER_UV + "&lat=" + this.latitude + "&lon=" + this.longitude)
+        let lat = this.$store.getters.cityInfos.map(item => {
+          return item.coord.lat;
+        });
+
+        let lon = this.$store.getters.cityInfos.map(item => {
+          return item.coord.lon;
+        });
+
+        return axios.get(CURRENT_WEATHER_UV + "&lat=" + lat + "&lon=" + lon)
             .then(response => {
               console.log(response.data);
               return response.data.value;

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="cityWeather">
     <b-card v-for="(cityN, index) of cityWeather" v-bind:key="index"
             :title="cityN.name"
-            img-src="https://picsum.photos/600/300/?image=25"
+            :img-src="'../assets/' + cityN.weather[0].icon"
             img-alt="Image"
             img-top
             tag="article"
@@ -15,10 +15,8 @@
       <span>Longitude : {{cityN.coord.lon}} </span>
       <br>
       <span>Temperature : {{ cityN.main.temp | celciusF}}</span>
+      <UvValue v-bind:uvValue="displayUv"/>
     </b-card>
-    <div class="advancedWeather">
-      <UvValue v-bind:uvValue="this.displayUv"/>
-    </div>
   </div>
 </template>
 
@@ -35,18 +33,24 @@ export default {
   props: {
     cityWeather: Array
   },
+  data(){
+    return {
+      lat: 0,
+      lon: 0
+    }
+  },
   asyncComputed: {
     displayUv : {
       get() {
-        let lat = this.$store.getters.cityInfos.map(item => {
+        this.lat = this.$store.getters.cityInfos.map(item => {
           return item.coord.lat;
         });
 
-        let lon = this.$store.getters.cityInfos.map(item => {
+        this.lon = this.$store.getters.cityInfos.map(item => {
           return item.coord.lon;
         });
 
-        return axios.get(CURRENT_WEATHER_UV + "&lat=" + lat + "&lon=" + lon)
+        return axios.get(CURRENT_WEATHER_UV + "&lat=" + this.lat + "&lon=" + this.lon)
             .then(response => {
               console.log(response.data);
               return response.data.value;

@@ -10,7 +10,7 @@
       img-alt="Image"
       img-top
       tag="article"
-      style="max-width: 20rem"
+      style=""
       class="mb-2"
     >
       <span>
@@ -97,5 +97,14 @@ export default {
 .cityWeather {
   text-align: initial;
   display: inline-flex;
+}
+
+.card-body {
+  color: #ff5722;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }
 </style>

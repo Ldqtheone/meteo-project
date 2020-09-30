@@ -3,7 +3,7 @@
     <h1>{{msg}}</h1>
     <label for="reSearch">Ville souhaitée : </label>
     <input type="text" v-model="reSearch" id="reSearch">
-    <button @click="getCityWeather">City</button>
+    <button @click="this.getCityWeather">City</button>
     <div class="city" v-if="this.$store.getters.city !== ''">
       <CityWeather v-bind:latitude="this.latitude" v-bind:longitude="this.longitude" v-bind:cityWeather="this.villeWeather"/>
     </div>
@@ -34,6 +34,31 @@ export default {
       longitude: 0
     }
   },
+  asyncComputed: {
+    getCityWeather: {
+      get() {
+        axios.get(CURRENT_WEATHER_CITY + "&q=" + this.reSearch)
+            .then(response => {
+              console.log(response.data);
+              this.villeWeather.push(response.data);
+              this.latitude = response.data.coord.lat;
+              this.longitude = response.data.coord.lon;
+
+              this.$store.commit('setCityId', response.data.sys.id);
+              this.$store.commit('searchCity', this.reSearch);
+            })
+            .catch(e => {
+              console.log(e);
+              this.$store.commit('displayError', e)
+            });
+
+        this.villeWeather = [];
+      },
+      default(){
+        return "Chargement ...";
+      }
+    }
+  },
   methods: {
     getCityWeather() {
       axios.get(CURRENT_WEATHER_CITY + "&q=" + this.reSearch)
@@ -43,17 +68,14 @@ export default {
             this.latitude = response.data.coord.lat;
             this.longitude = response.data.coord.lon;
 
-            let latLon = {"Latitude": response.data.coord.lat, "Longitude": response.data.coord.lon};
-
             this.$store.commit('setCityId', response.data.sys.id);
-            this.$store.commit('setCityLatLon', latLon);
+            this.$store.commit('searchCity', this.reSearch);
           })
           .catch(e => {
             console.log(e);
             this.$store.commit('displayError', e)
           });
 
-      this.$store.commit('searchCity', this.reSearch);
       this.villeWeather = [];
     }
   }

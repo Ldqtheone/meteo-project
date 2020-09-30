@@ -15,7 +15,8 @@ PowerCharts(FusionCharts);
 Widgets(FusionCharts);
 FusionTheme(FusionCharts);
 
-Vue.use(VueFusionCharts, FusionCharts, AsyncComputed);
+Vue.use(VueFusionCharts, FusionCharts);
+Vue.use(AsyncComputed);
 
 Vue.config.productionTip = false;
 

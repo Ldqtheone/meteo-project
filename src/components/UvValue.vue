@@ -1,6 +1,6 @@
-<template v-if="uvValue">
-  <div>
-    <h1>Ephemeride :</h1>
+<template>
+  <div v-if="uvValue !== 0">
+    <h2>Indice Uv : {{uvValue}}</h2>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
   name: "UvValue",
   props: {
-    uvValue: Array
+    uvValue: [String, Number]
   }
 }
 

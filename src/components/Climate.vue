@@ -1,6 +1,6 @@
 <template v-if="climate">
   <div>
-    <h1>Forecast :</h1>
+    <h1>Climat :</h1>
   </div>
 </template>
 

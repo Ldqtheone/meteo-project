@@ -1,15 +1,20 @@
 <template>
   <div>
-    <h2> Voici les informations sur {{this.$store.getters.city}} : </h2>
-    <ul v-for="(cityN, index) of cityWeather" v-bind:key="index">
-      <li>
-        Country : {{cityN.sys.country}}
+    <b-card :title="this.$store.getters.city"
+            img-src="https://picsum.photos/600/300/?image=25"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2" v-for="(cityN, index) of cityWeather" v-bind:key="index">s
+      <span>
+        {{cityN.name}}
         <br>
-        ID : {{cityN.sys.id}}
-      </li>
-      <li>Latitude : {{cityN.coord.lat}} </li>
-      <li>Longitude : {{cityN.coord.lon}} </li>
-    </ul>
+        {{cityN.dt | moment("LLLL")}}
+      </span>
+      <span>Latitude : {{cityN.coord.lat}} </span>
+      <span>Longitude : {{cityN.coord.lon}} </span>
+    </b-card>
     <div class="advancedWeather">
       <UvValue v-bind:uvValue="this.displayUv"/>
     </div>
@@ -21,6 +26,8 @@
 import UvValue from "./UvValue";
 import axios from "axios";
 import { CURRENT_WEATHER_UV } from "../constants";
+import moment from 'moment'
+
 
 export default {
   name: "CityWeather",
@@ -54,6 +61,19 @@ export default {
       }
     }
   },
+  filters: {
+    reformatDate: function (value) {
+      if (!value)
+        return 'Aucune date à afficher';
+
+      let newDate = new Date(value);
+
+      console.log(value);
+      console.log(newDate);
+
+      return moment(newDate).format('LLLL');
+    }
+  }
 }
 
 </script>

@@ -46,7 +46,7 @@ export default {
             this.$store.commit('displayError', e)
           });
 
-      this.villeWeather = [];
+      // this.villeWeather = [];
     }
   }
 }

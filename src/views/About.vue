@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>About Our Team : </h1>
-    <p> Only Me </p>
+    <p> Adrian - Ilias - Marion - Brian </p>
   </div>
 </template>
 

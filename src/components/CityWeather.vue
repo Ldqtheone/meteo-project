@@ -50,7 +50,7 @@ export default {
             })
       },
       default() {
-        return "Chargement";
+        return "Loading";
       }
     }
   },

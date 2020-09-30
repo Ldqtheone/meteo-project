@@ -2,19 +2,19 @@
   <div class="cityWeather">
     <b-card v-for="(cityN, index) of cityWeather" v-bind:key="index"
             :title="cityN.name"
-            :img-src="'../assets/' + cityN.weather[0].icon"
+            :img-src="'http://openweathermap.org/img/w/' + cityN.weather[0].icon + '.png' "
             img-alt="Image"
             img-top
             tag="article"
             style="max-width: 20rem;"
             class="mb-2">
       <span>
-        {{cityN.dt | moment("LLLL")}}
+        {{ cityN.dt | moment("LLLL") }}
       </span>
-      <span>Latitude : {{cityN.coord.lat}} </span>
-      <span>Longitude : {{cityN.coord.lon}} </span>
+      <span>Latitude : {{ cityN.coord.lat }} </span>
+      <span>Longitude : {{ cityN.coord.lon }} </span>
       <br>
-      <span>Temperature : {{ cityN.main.temp | celciusF}}</span>
+      <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
       <UvValue v-bind:uvValue="displayUv"/>
     </b-card>
   </div>
@@ -24,7 +24,7 @@
 
 import UvValue from "./UvValue";
 import axios from "axios";
-import { CURRENT_WEATHER_UV } from "../constants";
+import {CURRENT_WEATHER_UV} from "../constants";
 import moment from 'moment'
 
 export default {
@@ -33,14 +33,14 @@ export default {
   props: {
     cityWeather: Array
   },
-  data(){
+  data() {
     return {
       lat: 0,
       lon: 0
     }
   },
   asyncComputed: {
-    displayUv : {
+    displayUv: {
       get() {
         this.lat = this.$store.getters.cityInfos.map(item => {
           return item.coord.lat;
@@ -78,7 +78,7 @@ export default {
       return moment(newDate).format('LLLL');
     },
     celciusF: (value) => {
-      return Math.ceil(value - 273) + '°C / ' + Math.ceil(value * 9/5 - 459.67) + '°F'
+      return Math.ceil(value - 273) + '°C / ' + Math.ceil(value * 9 / 5 - 459.67) + '°F'
     },
   }
 }

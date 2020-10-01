@@ -5,7 +5,7 @@
       v-bind:key="index"
       :title="cityN.name"
       :img-src="
-        'http://openweathermap.org/img/w/' + cityN.weather[0].icon + '.png'
+        'http://openweathermap.org/img/wn/' + cityN.weather[0].icon + '@2x.png'
       "
       img-alt="Image"
       img-top

@@ -5,7 +5,7 @@ import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 
 const vuexLocal = new VuexPersistence({
-    storage: window.localStorage
+    storage: window.localStorage,
 })
 
 export const store = new Vuex.Store({
@@ -25,7 +25,7 @@ export const store = new Vuex.Store({
             state.city = city
         },
         setCityInfos(state, cityInfos) {
-            state.cityInfos.push(cityInfos);
+            state.cityInfos = cityInfos
         }
     },
     getters: {

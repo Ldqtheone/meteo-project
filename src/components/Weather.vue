@@ -63,8 +63,6 @@ export default {
         else
           this.$store.commit("displayError", "La ville recherchée est déjà affichée");
       }
-
-      // this.villeWeather = [];
     },
   },
 };

@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import Forecast from "../components/Forecast.vue";
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -22,6 +23,11 @@ export default new Router({
             path: "/about",
             name: "About",
             component: About
+        },
+        {
+            path: "/forecast/:city",
+            name: "Forecast",
+            component: Forecast
         }
     ]
 });

@@ -19,8 +19,8 @@
       <span>
         {{ cityN.dt | moment("LLLL") }}
       </span>
-      <span>Latitude : {{ cityN.coord.lat }} </span>
-      <span>Longitude : {{ cityN.coord.lon }} </span>
+      <br>
+      <span>Le temps est {{ cityN.weather[0].description }} </span>
       <br />
       <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
       <!--
@@ -36,7 +36,6 @@ import UvValue from "./UvValue";
 */
 import axios from "axios";
 import { CURRENT_WEATHER_UV } from "../constants";
-import moment from "moment";
 
 export default {
   name: "CityWeather",

@@ -3,11 +3,15 @@ import App from './App.vue';
 import { store } from '@/store'
 import router from '@/router'
 import AsyncComputed from 'vue-async-computed'
-import VueMoment from 'vue-moment'
+
+const moment = require('moment')
+require('moment/locale/fr')
+
+Vue.use(require('vue-moment'), {
+  moment
+})
+
 Vue.use(AsyncComputed);
-
-Vue.use(VueMoment)
-
 Vue.config.productionTip = false;
 
 new Vue({

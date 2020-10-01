@@ -73,7 +73,7 @@ export default {
 <style scoped>
 
 .my-1{
-  margin-left:  26em;
+  margin-left:  30%;
 }
 
 .panel {

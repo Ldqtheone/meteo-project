@@ -21,16 +21,17 @@ export default {
 <style>
 html,
 body {
-  background: #ff5722;
+  background-color: #22adff;
 }
+
 #app {
+  background: #22adff;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
   margin-top: 60px;
-  background: #ff5722;
 }
 
 .nav {

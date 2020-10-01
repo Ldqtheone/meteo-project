@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img src="../../img/source.gif" alt="" />
     <Weather msg="Bienvenue sur notre appli de météo !" />
   </div>
 </template>
@@ -17,4 +18,7 @@ export default {
 </script>
 
 <style scoped>
+img {
+  width: 300px;
+}
 </style>

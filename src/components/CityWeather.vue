@@ -100,7 +100,7 @@ export default {
 }
 
 .card-body {
-  color: #ff5722;
+  color: #22adff;
 }
 
 img {

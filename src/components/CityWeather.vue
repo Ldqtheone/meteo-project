@@ -71,16 +71,6 @@ export default {
     },
   },
   filters: {
-    reformatDate: function (value) {
-      if (!value) return "Aucune date à afficher";
-
-      let newDate = new Date(value);
-
-      console.log(value);
-      console.log(newDate);
-
-      return moment(newDate).format("LLLL");
-    },
     celciusF: (value) => {
       return (
         Math.ceil(value - 273) +

@@ -45,7 +45,6 @@ body {
   border: none;
   border: solid 2px white;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0);
   padding: 10px;
   margin-left: 10px;
 }

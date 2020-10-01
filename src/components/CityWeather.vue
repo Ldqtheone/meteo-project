@@ -4,15 +4,12 @@
       v-for="(cityN, index) of cityWeather"
       v-bind:key="index"
       :title="cityN.name"
-      :img-src="
-        'http://openweathermap.org/img/wn/' + cityN.weather[0].icon + '@2x.png'
-      "
-      img-alt="Image"
-      img-top
       tag="article"
-      style=""
       class="mb-2"
     >
+      <img :src="
+      'http://openweathermap.org/img/wn/' + cityN.weather[0].icon + '@2x.png'
+      ">
       <span>
         {{ cityN.dt | moment("LLLL") }}
       </span>

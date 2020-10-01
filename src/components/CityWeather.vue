@@ -1,27 +1,30 @@
 <template>
   <div class="cityWeather">
-    <b-card
-      v-for="(cityN, index) of cityWeather"
-      v-bind:key="index"
-      :title="cityN.name"
-      :img-src="
-        'http://openweathermap.org/img/w/' + cityN.weather[0].icon + '.png'
-      "
-      img-alt="Image"
-      img-top
-      tag="article"
-      style=""
-      class="mb-2"
-    >
-      <span>
-        {{ cityN.dt | moment("LLLL") }}
-      </span>
-      <span>Latitude : {{ cityN.coord.lat }} </span>
-      <span>Longitude : {{ cityN.coord.lon }} </span>
-      <br />
-      <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
-      <UvValue v-bind:uvValue="displayUv" />
-    </b-card>
+    <div class="mt2">
+      <b-card
+        v-for="(cityN, index) of cityWeather"
+        v-bind:key="index"
+        :title="cityN.name"
+        :img-src="
+          'http://openweathermap.org/img/w/' + cityN.weather[0].icon + '.png'
+        "
+        img-alt="Image"
+        img-top
+        tag="article"
+        style=""
+        class="mb-2"
+      >
+        <span>
+          {{ cityN.dt | moment("LLLL") }}
+        </span>
+        <span>Latitude : {{ cityN.coord.lat }} </span>
+        <br />
+        <span>Longitude : {{ cityN.coord.lon }} </span>
+        <br />
+        <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
+        <UvValue v-bind:uvValue="displayUv" />
+      </b-card>
+    </div>
   </div>
 </template>
 

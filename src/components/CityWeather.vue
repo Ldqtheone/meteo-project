@@ -29,14 +29,16 @@
 </template>
 
 <script>
+/*
 import UvValue from "./UvValue";
+*/
 import axios from "axios";
 import { CURRENT_WEATHER_UV } from "../constants";
 import moment from "moment";
 
 export default {
   name: "CityWeather",
-  components: { UvValue },
+  components: { /*UvValue */},
   props: {
     cityWeather: Array,
   },

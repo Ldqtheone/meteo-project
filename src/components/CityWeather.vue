@@ -127,7 +127,7 @@ export default {
 }
 
 .card-body {
-  color: #22adff;
+  color: #0699ef;
   background: #b5e2f9;
 }
 

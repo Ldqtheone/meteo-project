@@ -3,13 +3,19 @@
     <b-card
       v-for="(cityN, index) of cityWeather"
       v-bind:key="index"
-      :title="cityN.name"
       tag="article"
       class="mb-2"
     >
-      <img :src="
-      'http://openweathermap.org/img/wn/' + cityN.weather[0].icon + '@2x.png'
-      ">
+      <b-card-title
+        >{{ cityN.name }}
+        <b-img
+          :src="
+            'http://openweathermap.org/img/wn/' +
+            cityN.weather[0].icon +
+            '@2x.png'
+          "
+        ></b-img
+      ></b-card-title>
       <span>
         {{ cityN.dt | moment("LLLL") }}
       </span>
@@ -17,7 +23,7 @@
       <span>Longitude : {{ cityN.coord.lon }} </span>
       <br />
       <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
-<!--
+      <!--
       <UvValue v-bind:uvValue="displayUv" />
 -->
     </b-card>
@@ -34,7 +40,9 @@ import moment from "moment";
 
 export default {
   name: "CityWeather",
-  components: { /*UvValue */},
+  components: {
+    /*UvValue */
+  },
   props: {
     cityWeather: Array,
   },

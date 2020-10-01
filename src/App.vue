@@ -2,10 +2,10 @@
   <div id="app">
     <div class="nav">
       <router-link :to="{ name: 'Home' }" class="nav__link"
-        ><b-button class="button">Home</b-button></router-link
+        ><b-button variant="outline-light" >Home</b-button></router-link
       >
       <router-link :to="{ name: 'About' }" class="nav__link"
-        ><b-button class="button">About</b-button></router-link
+        ><b-button variant="outline-light" >About</b-button></router-link
       >
     </div>
     <router-view />

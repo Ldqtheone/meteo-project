@@ -128,6 +128,7 @@ export default {
 
 .card-body {
   color: #22adff;
+  background: #b5e2f9;
 }
 
 img {

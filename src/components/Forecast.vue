@@ -39,8 +39,6 @@ export default {
                 temperature: item.main.temp + "°C",
                 temps: item.weather[0].description
               }));
-
-              this.cityForecast.push(response.data.list);
             });
       },
       default() {

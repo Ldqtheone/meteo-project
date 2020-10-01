@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <b-row class="my-1">
       <b-col sm="2">
-        <label for="reSearch">Voir la météo de : </label>
+        <label>Voir la météo de : </label>
       </b-col>
       <b-col sm="3">
         <b-form-input v-model="reSearch" id="reSearch"></b-form-input>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       reSearch: "",
-      villeWeather: [],
+      villeWeather: this.$store.getters.cityInfos,
     };
   },
   methods: {
@@ -52,7 +52,6 @@ export default {
         axios
             .get(CURRENT_WEATHER_CITY + "&q=" + this.reSearch)
             .then((response) => {
-              console.log(response.data);
               this.villeWeather.push(response.data);
               this.$store.commit("setCityInfos", this.villeWeather);
               this.$store.commit("searchCity", this.reSearch);

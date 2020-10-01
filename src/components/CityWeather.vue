@@ -105,8 +105,7 @@ export default {
   data() {
     return {
       lat: 0,
-      lon: 0,
-      forecast: false
+      lon: 0
     };
   },
   /*  asyncComputed: {

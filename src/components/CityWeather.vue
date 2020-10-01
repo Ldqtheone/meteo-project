@@ -25,6 +25,8 @@
         <span>Le temps est {{ cityN.weather[0].description }} </span>
         <br/>
         <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
+        <br>
+        <span>Vitesse du vent : {{[cityN.wind.speed] | windS }}</span>
         <!--
       <UvValue v-bind:uvValue="displayUv" />
 -->
@@ -111,6 +113,9 @@ export default {
           "°F"
       );
     },
+    windS: (value) => {
+      return value * 3.6 + ' Km/h';
+    }
   },
 };
 </script>

@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex);
+
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+})
 
 export const store = new Vuex.Store({
     state: {
@@ -20,12 +25,13 @@ export const store = new Vuex.Store({
             state.city = city
         },
         setCityInfos(state, cityInfos) {
-            state.cityInfos = cityInfos
+            state.cityInfos.push(cityInfos);
         }
     },
     getters: {
         errorMessage: state => state.errorMessage,
         city: state => state.city,
         cityInfos: state => state.cityInfos
-    }
+    },
+    plugins: [vuexLocal.plugin]
 });

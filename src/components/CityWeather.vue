@@ -28,6 +28,7 @@
         <!--
       <UvValue v-bind:uvValue="displayUv" />
 -->
+        <br/>
         <span>Humidité : {{ cityN.main.humidity }}%
         <svg v-if="cityN.main.humidity <= 33 " width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet"
              fill="currentColor"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Prévisions : {{this.$route.params.city}}</h3>
-      <b-table :items="items" :fields="fields" :tbody-tr-class="getCityForecast"></b-table>
+      <b-table table-variant="light" striped :items="items" :fields="fields" :tbody-tr-class="getCityForecast"></b-table>
   </div>
 </template>
 
@@ -9,6 +9,8 @@
 
 import axios from "axios";
 import { CURRENT_WEATHER_FORECAST } from "../constants";
+
+import moment from 'moment'
 
 export default {
   name: "Forecast",
@@ -31,7 +33,7 @@ export default {
               let result = response.data.list;
 
               result.forEach(item => this.items.push({
-                date: item.dt_txt,
+                date: moment(item.dt_txt).format("dddd DD MMM - HH") + "h",
                 humidité: item.main.humidity + "%",
                 vent: item.wind.speed + " km/h",
                 temperature: item.main.temp + "°C",

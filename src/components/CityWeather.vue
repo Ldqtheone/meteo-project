@@ -91,15 +91,12 @@
 </template>
 
 <script>
-/*import UvValue from "./UvValue";
-import axios from "axios";
-import { CURRENT_WEATHER_UV } from "../constants";*/
+
+/*import { CURRENT_WEATHER_UV } from "../constants";*/
+
 
 export default {
   name: "CityWeather",
-  components: {
-    /*UvValue */
-  },
   props: {
     cityWeather: Array,
   },
@@ -107,10 +104,12 @@ export default {
     return {
       lat: 0,
       lon: 0,
+      forecast: false
     };
   },
   /*  asyncComputed: {
     displayUv: {
+    /*displayUv: {
       get() {
         this.lat = this.$store.getters.cityInfos.map((item) => {
           return item.coord.lat;
@@ -146,8 +145,8 @@ export default {
       );
     },
     windS: (value) => {
-      return value * 3.6 + " Km/h";
-    },
+      return Math.ceil(value * 3.6) + ' Km/h';
+    }
   },
 };
 </script>

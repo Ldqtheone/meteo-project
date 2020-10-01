@@ -64,10 +64,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background: #ff5722;
-}
-
 .searchbar,
 .button {
   height: 45px;
@@ -81,7 +77,7 @@ body {
 .searchbar {
   width: 380px;
   border-bottom: solid thin white;
-  color: #e8e8e8;
+  color: white;
   color: rgba(255, 255, 255, 0.7);
   background: transparent;
 }
@@ -127,7 +123,7 @@ body {
 
 .button {
   border: none;
-  border: solid 2px white;
+  border: solid 2px #22adff;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0);
   padding: 10px;

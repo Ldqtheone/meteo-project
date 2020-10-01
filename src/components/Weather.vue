@@ -32,18 +32,30 @@ export default {
   },
   methods: {
     getCityWeather() {
-      axios
-        .get(CURRENT_WEATHER_CITY + "&q=" + this.reSearch)
-        .then((response) => {
-          console.log(response.data);
-          this.villeWeather.push(response.data);
-          this.$store.commit("setCityInfos", this.villeWeather);
-          this.$store.commit("searchCity", this.reSearch);
-        })
-        .catch((e) => {
-          console.log(e);
-          this.$store.commit("displayError", e);
-        });
+
+      this.$store.commit("resetErrors");
+
+      let cityName = this.$store.getters.cityInfos.map(item => {
+        return item.name.toUpperCase();
+      });
+
+      let canPush = cityName.length < 9;
+
+      if(!cityName.includes(this.reSearch.toUpperCase()) && canPush)
+        axios
+            .get(CURRENT_WEATHER_CITY + "&q=" + this.reSearch)
+            .then((response) => {
+              console.log(response.data);
+              this.villeWeather.push(response.data);
+              this.$store.commit("setCityInfos", this.villeWeather);
+              this.$store.commit("searchCity", this.reSearch);
+            });
+      else {
+        if(!canPush)
+          this.$store.commit("displayError", "Le nombre maximale de ville a été atteint");
+        else
+          this.$store.commit("displayError", "La ville recherchée est déjà affichée");
+      }
 
       // this.villeWeather = [];
     },

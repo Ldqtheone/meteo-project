@@ -31,11 +31,9 @@
 </template>
 
 <script>
-/*
-import UvValue from "./UvValue";
-*/
+/*import UvValue from "./UvValue";
 import axios from "axios";
-import { CURRENT_WEATHER_UV } from "../constants";
+import { CURRENT_WEATHER_UV } from "../constants";*/
 
 export default {
   name: "CityWeather",
@@ -51,7 +49,7 @@ export default {
       lon: 0,
     };
   },
-  asyncComputed: {
+/*  asyncComputed: {
     displayUv: {
       get() {
         this.lat = this.$store.getters.cityInfos.map((item) => {
@@ -77,7 +75,7 @@ export default {
         return "Loading";
       },
     },
-  },
+  },*/
   filters: {
     celciusF: (value) => {
       return (

@@ -20,20 +20,24 @@
       <span>Longitude : {{ cityN.coord.lon }} </span>
       <br />
       <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
+<!--
       <UvValue v-bind:uvValue="displayUv" />
+-->
     </b-card>
   </div>
 </template>
 
 <script>
+/*
 import UvValue from "./UvValue";
+*/
 import axios from "axios";
 import { CURRENT_WEATHER_UV } from "../constants";
 import moment from "moment";
 
 export default {
   name: "CityWeather",
-  components: { UvValue },
+  components: { /*UvValue */},
   props: {
     cityWeather: Array,
   },

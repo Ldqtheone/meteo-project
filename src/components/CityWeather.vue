@@ -86,7 +86,8 @@
               </svg>
             </span>
           </router-link>
-          <button @click="updateCard(cityN.name)">Update</button>
+          <button @click="updateCard(cityN.name)">Refresh</button>
+          <button @click="deleteCard(cityN.name)">Delete</button>
         </b-card>
       </b-card-group>
     </div>
@@ -119,7 +120,15 @@ export default {
             .then((response) => {
               this.$store.commit("updateCity",response.data);
             });
-      }
+      },
+    deleteCard(name){
+      console.log(name);
+      axios
+          .get(CURRENT_WEATHER_CITY + "&q=" + name)
+          .then((response) => {
+            this.$store.commit("deleteCity",response.data);
+          });
+    },
     },
     /*displayUv: {
       get() {

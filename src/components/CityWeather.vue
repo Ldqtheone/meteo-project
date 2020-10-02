@@ -28,9 +28,6 @@
             <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
             <br />
             <span>Vitesse du vent : {{ [cityN.wind.speed] | windS }}</span>
-            <!--
-        <UvValue v-bind:uvValue="displayUv" />
-  -->
             <br />
             <span
               >Humidité : {{ cityN.main.humidity }}%
@@ -96,8 +93,6 @@
 
 <script>
 
-/*import { CURRENT_WEATHER_UV } from "../constants";*/
-
 import {CURRENT_WEATHER_CITY} from "../constants";
 import axios from "axios";
 
@@ -129,33 +124,7 @@ export default {
             this.$store.commit("deleteCity",response.data);
           });
     },
-    },
-    /*displayUv: {
-      get() {
-        this.lat = this.$store.getters.cityInfos.map((item) => {
-          return item.coord.lat;
-        });
-
-        this.lon = this.$store.getters.cityInfos.map((item) => {
-          return item.coord.lon;
-        });
-
-        return axios
-            .get(CURRENT_WEATHER_UV + "&lat=" + this.lat + "&lon=" + this.lon)
-            .then((response) => {
-              console.log(response.data);
-              return response.data.value;
-            })
-            .catch((e) => {
-              this.errors.push(e);
-              this.$store.commit("displayError", e);
-            });
-      },
-      default() {
-        return "Loading";
-      },
-    }
-     */
+  },
   filters: {
     celciusF: (value) => {
       return (

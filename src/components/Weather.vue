@@ -33,10 +33,14 @@ export default {
   },
   data() {
     return {
-      reSearch: "",
+      reSearch: this.$store.getters.city,
       villeWeather: this.$store.getters.cityInfos,
+      villeNb: 0
     };
   },
+  /*mounted() {
+    this.addCity();
+  },*/
   methods: {
     getCityWeather() {
 
@@ -63,6 +67,18 @@ export default {
           this.$store.commit("displayError", "La ville recherchée est déjà affichée");
       }
     },
+
+      if(this.villeNb < 3)
+        cityArray.forEach(item =>
+          axios
+          .get(CURRENT_WEATHER_CITY + "&q=" + item)
+          .then((response) => {
+            this.villeWeather.push(response.data);
+            this.$store.commit("setCityInfos", this.villeWeather);
+            this.$store.commit("searchCity", this.reSearch);
+            this.villeNb += 1;
+          }));
+    }*/
   },
 };
 </script>

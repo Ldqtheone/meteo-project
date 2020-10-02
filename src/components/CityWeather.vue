@@ -86,6 +86,7 @@
               </svg>
             </span>
           </router-link>
+          <button @click="updateCard(cityN.name)">Update</button>
         </b-card>
       </b-card-group>
     </div>
@@ -96,6 +97,8 @@
 
 /*import { CURRENT_WEATHER_UV } from "../constants";*/
 
+import {CURRENT_WEATHER_CITY} from "../constants";
+import axios from "axios";
 
 export default {
   name: "CityWeather",
@@ -108,8 +111,16 @@ export default {
       lon: 0
     };
   },
-  /*  asyncComputed: {
-    displayUv: {
+  methods: {
+    updateCard(name){
+      console.log(name);
+        axios
+            .get(CURRENT_WEATHER_CITY + "&q=" + name)
+            .then((response) => {
+              this.$store.commit("updateCity",response.data);
+            });
+      }
+    },
     /*displayUv: {
       get() {
         this.lat = this.$store.getters.cityInfos.map((item) => {
@@ -134,8 +145,8 @@ export default {
       default() {
         return "Loading";
       },
-    },
-  },*/
+    }
+     */
   filters: {
     celciusF: (value) => {
       return (

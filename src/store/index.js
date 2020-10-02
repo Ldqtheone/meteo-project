@@ -26,6 +26,13 @@ export const store = new Vuex.Store({
         },
         setCityInfos(state, cityInfos) {
             state.cityInfos = cityInfos
+        },
+        updateCity (state, cityInfos) {
+            const index = state.cityInfos.findIndex(item => item.name === cityInfos.name)
+            state.cityInfos[index] = cityInfos
+            console.log(state.cityInfos[index]);
+            /*state.cityInfos[index] = cityInfos*/
+
         }
     },
     getters: {

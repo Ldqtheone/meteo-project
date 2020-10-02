@@ -67,6 +67,8 @@ export default {
           this.$store.commit("displayError", "La ville recherchée est déjà affichée");
       }
     },
+/*    addCity() {
+      let cityArray = ['Paris', 'Cergy'];
 
       if(this.villeNb < 3)
         cityArray.forEach(item =>

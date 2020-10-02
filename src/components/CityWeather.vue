@@ -167,7 +167,7 @@ export default {
 
 .refreshDeleteIcons {
   position: absolute;
-  margin-left: 255px;
+  margin-left: 85%;
   margin-top: -10px;
 }
 

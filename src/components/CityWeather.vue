@@ -3,30 +3,15 @@
     <div class="">
       <b-card-group columns class="pl-3 pr-3">
         <b-card
-            v-for="(cityN, index) of this.$store.getters.cityInfos"
-            v-bind:key="index"
-            tag="article"
-            class="mt-2"
+          v-for="(cityN, index) of this.$store.getters.cityInfos"
+          v-bind:key="index"
+          tag="article"
+          class="mt-2"
         >
-          <div class="refreshDeleteIcons">
-            <svg @click="updateCard(cityN.name)" width="1em" height="1em" viewBox="0 0 16 16"
-                 class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-              <path
-                  d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-            </svg>
-            <svg @click="deleteCard(cityN.name)" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
-                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path
-                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-              <path fill-rule="evenodd"
-                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg>
-          </div>
           <b-card-title
-          >{{ cityN.name }}
+            >{{ cityN.name }}
             <b-img
-                :src="
+              :src="
                 'http://openweathermap.org/img/wn/' +
                 cityN.weather[0].icon +
                 '@2x.png'
@@ -37,72 +22,72 @@
             <span>
               {{ cityN.dt | moment("LLLL") }}
             </span>
-            <br/>
+            <br />
             <span>Le temps est {{ cityN.weather[0].description }} </span>
-            <br/>
+            <br />
             <span>Temperature : {{ cityN.main.temp | celciusF }}</span>
-            <br/>
+            <br />
             <span>Vitesse du vent : {{ [cityN.wind.speed] | windS }}</span>
             <!--
         <UvValue v-bind:uvValue="displayUv" />
   -->
             <br />
             <span
-            >Humidité : {{ cityN.main.humidity }}%
+              >Humidité : {{ cityN.main.humidity }}%
               <svg
-                  v-if="cityN.main.humidity <= 33"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  class="bi bi-droplet"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
+                v-if="cityN.main.humidity <= 33"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                class="bi bi-droplet"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                    fill-rule="evenodd"
-                    d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                  fill-rule="evenodd"
+                  d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
                 />
                 <path
-                    fill-rule="evenodd"
-                    d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                  fill-rule="evenodd"
+                  d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
                 />
               </svg>
               <svg
-                  v-else-if="cityN.main.humidity > 33 && cityN.main.humidity < 66"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  class="bi bi-droplet-half"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
+                v-else-if="cityN.main.humidity > 33 && cityN.main.humidity < 66"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                class="bi bi-droplet-half"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                    fill-rule="evenodd"
-                    d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
+                  fill-rule="evenodd"
+                  d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"
                 />
                 <path
-                    fill-rule="evenodd"
-                    d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
+                  fill-rule="evenodd"
+                  d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
                 />
               </svg>
               <svg
-                  v-else
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  class="bi bi-droplet-fill"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
+                v-else
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                class="bi bi-droplet-fill"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                    fill-rule="evenodd"
-                    d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z"
+                  fill-rule="evenodd"
+                  d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z"
                 />
               </svg>
             </span>
           </router-link>
-
-          <br/>
+          <button @click="updateCard(cityN.name)">Refresh</button>
+          <button @click="deleteCard(cityN.name)">Delete</button>
         </b-card>
       </b-card-group>
     </div>
@@ -128,20 +113,20 @@ export default {
     };
   },
   methods: {
-    updateCard(name) {
+    updateCard(name){
+      console.log(name);
+        axios
+            .get(CURRENT_WEATHER_CITY + "&q=" + name)
+            .then((response) => {
+              this.$store.commit("updateCity",response.data);
+            });
+      },
+    deleteCard(name){
       console.log(name);
       axios
           .get(CURRENT_WEATHER_CITY + "&q=" + name)
           .then((response) => {
-            this.$store.commit("updateCity", response.data);
-          });
-    },
-    deleteCard(name) {
-      console.log(name);
-      axios
-          .get(CURRENT_WEATHER_CITY + "&q=" + name)
-          .then((response) => {
-            this.$store.commit("deleteCity", response.data);
+            this.$store.commit("deleteCity",response.data);
           });
     },
     },
@@ -174,10 +159,10 @@ export default {
   filters: {
     celciusF: (value) => {
       return (
-          Math.ceil(value - 273) +
-          "°C / " +
-          Math.ceil((value * 9) / 5 - 459.67) +
-          "°F"
+        Math.ceil(value - 273) +
+        "°C / " +
+        Math.ceil((value * 9) / 5 - 459.67) +
+        "°F"
       );
     },
     windS: (value) => {
@@ -195,13 +180,6 @@ export default {
   color: #0699ef;
   background: #b5e2f9;
 }
-
-.refreshDeleteIcons {
-  position: absolute;
-  margin-left: 255px;
-  margin-top: -10px;
-}
-
 
 img {
   width: 50px;
